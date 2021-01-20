@@ -35,8 +35,71 @@ int main()
   return 0;
 }
 
-LEARNINGS - 
+LEARNINGS FROM PROBLEM A - 
 1. Do try first string questions with concatenation.
 2. I got to know how to separate all the digits of an integer.
 3. Dont go in a complicated way first try easy one solution.
 4. Always think of the edge cases.
+
+
+PROBLEM B -
+SOLUTION - 
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+  int d;
+  cin >> d;
+  vector <int> p;
+  for(int i=d+1;;i++)
+  {
+    int t= 1;
+    for(int j=2;j*j<=i;j++)
+    {
+      if(i%j == 0)
+      {
+        t = 0;
+        break;
+      }
+    }
+    if(t)
+    {
+      p.push_back(i);
+      break;
+    }
+  }
+  for(int i=p.back()+d;;i++)
+  {
+    int t = 1;
+    for(int j=2;j*j<=i;j++)
+    {
+      if(i%j == 0)
+      {
+        t =0;
+        break;
+      }
+    }
+    if(t)
+    {
+      p.push_back(i);
+      break;
+    }
+  }
+  cout << p[0]*p[1];
+}
+int main()
+{
+  int T;
+  cin >> T;
+  while(T--)
+  {
+    solve();
+    printf("\n");
+  }
+}
+
+
+LEARNINGS FROM PROBLEM B - 
+1. how to find the prime numbers in a range by the optimal method called sieve method with Time Complexity approximately O(N).
+2. in this problem we have to find the number with exactly four divisors.
