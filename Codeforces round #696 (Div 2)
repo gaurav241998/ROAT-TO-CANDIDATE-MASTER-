@@ -104,3 +104,4 @@ LEARNINGS FROM PROBLEM B -
 1. how to find the prime numbers in a range by the optimal method called sieve method with Time Complexity approximately O(N).
 2. in this problem we have to find the number with exactly four divisors.
 3. How to take out the smallest possible prime number which is greater than a specified number.
+4. for the more explaination of how to find the prime numbers please refer this video - https://www.youtube.com/watch?v=yB57bcffJo4
