@@ -36,3 +36,7 @@ int main()
 }
 
 LEARNINGS - 
+1. Do try first string questions with concatenation.
+2. I got to know how to separate all the digits of an integer.
+3. Dont go in a complicated way first try easy one solution.
+4. Always think of the edge cases.
