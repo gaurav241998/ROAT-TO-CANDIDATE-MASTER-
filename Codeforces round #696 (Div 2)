@@ -105,3 +105,96 @@ LEARNINGS FROM PROBLEM B -
 2. in this problem we have to find the number with exactly four divisors.
 3. How to take out the smallest possible prime number which is greater than a specified number.
 4. for the more explaination of how to find the prime numbers please refer this video - https://www.youtube.com/watch?v=yB57bcffJo4
+
+PROBLEM C - 
+SOLUTION - 
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+  int n;
+  cin >> n;
+  int a[2*n];
+  int mx = 0;
+  for(int i=0;i<2*n;i++)
+  {
+    cin >> a[i];
+    if(a[i]>a[mx])
+    {
+      mx = i;
+    }
+  }
+  int ans = -1;
+  for(int i=0;i<2*n;i++)
+  {
+    if(i == mx)
+    {
+      continue;
+    }
+    int x = a[mx];
+    multiset<int> tmp;
+    for(int j=0;j<2*n;j++)
+    {
+      if(j==mx || j ==i) continue;
+      tmp.insert(a[j]);
+    }
+    bool ok = 1;
+    while(tmp.size())
+    {
+      int a = *tmp.rbegin();
+      tmp.erase(tmp.find(a));
+      if(tmp.find(x-a) == tmp.end())
+      {
+        ok = 0;
+        break;
+      }
+      tmp.erase(tmp.find(x-a));
+      x = a;
+    }
+    if(ok == 1)
+    {
+      ans = i;
+      break;
+    }
+  }
+  if(ans == -1)
+  {
+    cout << "NO\n";
+    return;
+  }
+  cout << "YES\n";
+  int x = a[mx] + a[ans];
+  cout << x << "\n";
+
+  multiset<int> tmp;
+  for(int i=0;i<2*n;i++)
+  {
+    tmp.insert(a[i]);
+  }
+
+  while(tmp.size())
+  {
+    int a = *tmp.rbegin();
+    tmp.erase(tmp.find(a));
+    tmp.erase(tmp.find(x-a));
+    cout << x-a << " " << a << "\n";
+    x = a;
+  }
+}
+int main()
+{
+  int T;
+  cin >> T;
+  while(T--)
+  {
+    solve();
+  }
+  return 0;
+}
+
+LEARNINGS FROM PROBLEM C - 
+1. got to know about multiset which is same as set but can store same values also.
+2. how to find the pair of integers from an array of given sum by two methods first one is by hash map and second one is by sorting technique.
+3. The best approach in this problem is to find the maximum element from an array then find its corresponding element so by removing that element from an array the wwhole array will be exhausted.
+
