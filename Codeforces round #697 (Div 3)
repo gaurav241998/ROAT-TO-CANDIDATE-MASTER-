@@ -46,6 +46,10 @@ int main()
   return 0;
 }
 
+LEARNINGS FRO THIS PROBLEM - 
+1.  2 is the only even prime number.
+2.  To find the odd divisor of even number keep on dividing this number with 2 if there occurs a odd number in it then it is the only odd divisor of that number.
+
 
 PROBLEM B - 
 SOLUTION - 
